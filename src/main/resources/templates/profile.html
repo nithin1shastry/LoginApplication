@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        img {
+            border-radius: 50%;
+            margin: 20px 0;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 3px solid #4285f4;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4285f4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <h1>User Profile</h1>
+    <img th:src="${picture}" alt="Profile Picture" />
+    <p><strong>Name:</strong> <span th:text="${name}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${email}"></span></p>
+    <a href="/logout">Logout</a>
+</div>
+
+</body>
+</html>
