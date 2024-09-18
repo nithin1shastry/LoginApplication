@@ -23,7 +23,7 @@ Users can log in with either their credentials or Google authentication.
 ### Registration Page
 New users can register by providing their details and selecting a role.
 
-![Registration Page](https://github.com/user-attachments/assets/2abf6da4-0a66-4f5e-bdda-becc3677baa6)
+![Registration Page](https://github.com/user-attachments/assets/33346b7d-e9b3-4333-8a6f-ca8c3697acf7)
 
 ---
 
@@ -48,6 +48,26 @@ Users can log in via their Google accounts. The application fetches and displays
 
 ---
 
+### Database Relations
+
+The application manages users and their roles using a relational database model with three tables: `users`, `roles`, and `users_role` (join table).
+
+- **User Table**: Stores user information such as name, email, and password.
+- **Role Table**: Defines different roles in the application (e.g., "USER", "ADMIN").
+- **User_Role Table**: Maps the many-to-many relationship between users and roles.
+
+#### Entity Relationships:
+
+- Each user can have multiple roles (e.g., both "USER" and "ADMIN").
+- Each role can be assigned to multiple users.
+- The `users_role` table acts as the bridge table connecting `users` and `roles` through foreign keys.
+
+#### Schema Overview:
+
+- **User**: Stores user details.
+- **Role**: Defines roles within the system.
+- **User_Role**: Maps which user has which roles.
+  
 ## Prerequisites
 
 - **Java 11** or later
