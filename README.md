@@ -37,7 +37,7 @@ Accessible only to admin users. The application restricts this page from regular
 ### User Dashboard
 Regular users are redirected to the user dashboard, which presents relevant information and restricted access to admin functionalities.
 
-![User Dashboard](https://github.com/user-attachments/assets/7fe96a47-1925-48a0-821b-7f76e4e736f8)
+![User Dashboard](https://github.com/user-attachments/assets/b46a502b-b67d-4f01-8dd0-6f694031d80d)
 
 ---
 
