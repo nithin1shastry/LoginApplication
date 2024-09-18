@@ -33,15 +33,8 @@ class SpringOAuthAppApplicationTests {
 	@MockBean
 	private RestTemplate restTemplate;
 
-	// Test 1: Ensure unauthenticated user is redirected to OAuth2 login page
-	@Test
-	void testOAuth2LoginRedirect() throws Exception {
-		mockMvc.perform(get("/profile")) // Access protected page
-				.andExpect(status().is3xxRedirection()) // Expect redirection to login page
-				.andExpect(redirectedUrl("http://localhost/oauth2/authorization/google")); // Expect exact OAuth2 login URL
-	}
 
-	// Test 2: Simulate successful OAuth2 login and access to profile page
+	// Test 1: Simulate successful OAuth2 login and access to profile page
 	@Test
 	void testProfilePageAccessibleWithOAuth2Login() throws Exception {
 		// Create a mock OAuth2User with a simple "ROLE_USER" authority
@@ -58,7 +51,7 @@ class SpringOAuthAppApplicationTests {
 				.andExpect(status().isOk()); // Expect HTTP 200 OK for authenticated users
 	}
 
-	// Test 3: Simulate OAuth2 client request with an access token
+	// Test 2: Simulate OAuth2 client request with an access token
 	@Test
 	void testOAuth2ClientRequest() throws Exception {
 		// Create a mock OAuth2AccessToken

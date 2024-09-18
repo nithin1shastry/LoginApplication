@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Role Based Auth</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: #007bff;
+            border: none;
+            padding: 10px;
+        }
+        .navbar h1 {
+            color: white;
+            font-size: 24px;
+            margin: 0;
+        }
+        .google-btn {
+            background-color: #db4437;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .google-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- create navigation bar (header) -->
+<nav class="navbar navbar-fixed-top">
+    <div class="container text-center">
+        <h1>Role Based Authentication</h1>
+    </div>
+</nav>
+
+<br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div th:if="${param.error}">
+                <div class="alert alert-info">Email or Password entered is Wrong. Please Check and Login Again.</div>
+            </div>
+
+            <h1>Login</h1>
+
+            <form th:action="@{/login}" method="post" th:object="${user}">
+                <div class="form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <input id="email" class="form-control" th:field="*{username}" required autofocus="autofocus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="password">Password</label>
+                    <input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus"/>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <span>New User? <a href="#" th:href="@{/registration}">Register here</a></span>
+                </div>
+            </form>
+
+            <div class="form-group text-center">
+                <a class="google-btn" href="/oauth2/authorization/google">
+                    <i class="glyphicon glyphicon-log-in"></i> Log In with Google
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
