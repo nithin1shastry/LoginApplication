@@ -1,0 +1,23 @@
+CREATE TABLE `user` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `email` VARCHAR(100) NOT NULL,
+    `name` VARCHAR(100) NOT NULL,
+    `password` VARCHAR(255) NOT NULL
+);
+CREATE TABLE `role` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `role` VARCHAR(50) NOT NULL
+);
+CREATE TABLE `users_role` (
+    `cust_id` INT,	
+    `role_id` INT,
+    PRIMARY KEY (`cust_id`, `role_id`),
+    FOREIGN KEY (`cust_id`) REFERENCES `user`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`role_id`) REFERENCES `role`(`id`) ON DELETE CASCADE
+);
+INSERT INTO `rolebasedauthentication`.`role` (`id`, `role`)
+VALUES (1, 'ADMIN');
+
+INSERT INTO `rolebasedauthentication`.`role` (`id`, `role`)
+VALUES (2, 'USER');
+
